@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class More extends StatelessWidget {
@@ -35,7 +36,9 @@ class More extends StatelessWidget {
             ),
             trailing: IconButton(
               icon: Icon(Icons.arrow_forward_ios_rounded),
-              onPressed: () {},
+              onPressed: () {
+                //Share.share('check out my website https://example.com');
+              },
             ),
             tileColor: CupertinoColors.white,
             shape:
@@ -63,18 +66,15 @@ class More extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: ListTile(
+            trailing: Icon(Icons.exit_to_app_rounded),
             title: Text(
               'Exit',
               style: GoogleFonts.poppins(),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios_rounded),
-              onPressed: () {},
-            ),
             tileColor: CupertinoColors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            onTap: () {},
+            onTap: ()=> SystemNavigator.pop(),
           ),
         ),
       ],

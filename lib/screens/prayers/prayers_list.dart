@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
+import 'package:rosary/screens/prayers/single_prayer.dart';
 
 class PrayerSection extends StatelessWidget {
   const PrayerSection({
@@ -34,10 +35,11 @@ class PrayerSection extends StatelessWidget {
           return Opacity(
             opacity: scale,
             child: OpenContainer(
-              closedColor: CupertinoColors.extraLightBackgroundGray.withOpacity(0),
+              closedColor:
+                  CupertinoColors.extraLightBackgroundGray.withOpacity(0),
               closedElevation: 0,
-              closedShape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+              closedShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0)),
               closedBuilder: (context, action) {
                 return Transform(
                   transform: Matrix4.identity()..scale(scale, scale),
@@ -49,15 +51,8 @@ class PrayerSection extends StatelessWidget {
                 );
               },
               openBuilder: (context, action) {
-                return Scaffold(
-                  appBar: AppBar(
-                    elevation: 0,
-                  ),
-                  body: Container(
-                    child: Center(
-                      child: itemsData[index]
-                    ),
-                  ),
+                return SinglePrayer(
+                  num: index,
                 );
               },
             ),

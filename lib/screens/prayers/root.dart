@@ -43,14 +43,20 @@ class _PrayersState extends State<Prayers> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        post["title"],
-                        style: const TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
+                        post["name"],
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        post["prayer"],
-                        style:
-                            const TextStyle(fontSize: 17, color: Colors.grey),
+                      Container(
+                        height: 70,
+                        width: 270,
+                        child: Text(
+                          post["prayer"],
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+                          style:
+                              const TextStyle(fontSize: 17, color: Colors.grey),
+                        ),
                       ),
                       SizedBox(
                         height: 10,
@@ -64,10 +70,6 @@ class _PrayersState extends State<Prayers> {
         );
       },
     );
-    listItems.add(Container(
-      height: 100,
-      color: Colors.black.withOpacity(0),
-    ));
     setState(() {
       itemsData = listItems;
     });
@@ -113,7 +115,10 @@ class _PrayersState extends State<Prayers> {
                   ),
                 ),
               ),
-              PrayerSection(controller: controller, itemsData: itemsData, topContainer: topContainer),
+              PrayerSection(
+                  controller: controller,
+                  itemsData: itemsData,
+                  topContainer: topContainer),
             ],
           ),
         ),
