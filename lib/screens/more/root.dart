@@ -39,8 +39,7 @@ class More extends StatelessWidget {
             tileColor: CupertinoColors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            onTap: () {
-            },
+            onTap: () {},
           ),
         ),
         Padding(
